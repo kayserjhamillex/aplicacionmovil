@@ -1,7 +1,7 @@
 package com.example.hellouda;
-
 import android.content.Intent;
 import android.widget.Button;
+import android.view.View;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -27,17 +27,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); //enlazas activity  con el layout
         btnProducts = (Button) findViewById(R.id.btnEnter);
         btnAboutUs = (Button) findViewById(R.id.btnAboutUs);
-        btnProducts.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Log.i(Settings.INFO,"Products");
-                Intent i = new Intent(MainActivity.this, ProductListActivity.class);
+        btnProducts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,
+                        ProductListActivity.class);
                 startActivity(i);
             }
         });
-        btnAbout.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Log.i(Settings.INFO,"About Us");
-                Intent i = new Intent(MainActivity.this, AboutUsActivity.class);
+        btnAboutUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,
+                        AboutActivity.class);
                 startActivity(i);
             }
         });
