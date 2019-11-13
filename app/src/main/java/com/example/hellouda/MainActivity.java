@@ -1,5 +1,7 @@
 package com.example.hellouda;
 
+import android.content.Intent;
+import android.widget.Button;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -8,17 +10,37 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.provider.Settings;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button btnProducts;
+    private Button btnAboutUs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main); //enlazas activity  con el layout
+        btnProducts = (Button) findViewById(R.id.btnEnter);
+        btnAboutUs = (Button) findViewById(R.id.btnAboutUs);
+        btnProducts.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Log.i(Settings.INFO,"Products");
+                Intent i = new Intent(MainActivity.this, ProductListActivity.class);
+                startActivity(i);
+            }
+        });
+        btnAbout.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Log.i(Settings.INFO,"About Us");
+                Intent i = new Intent(MainActivity.this, AboutUsActivity.class);
+                startActivity(i);
+            }
+        });
     }
     @Override
     protected void onResume(){
